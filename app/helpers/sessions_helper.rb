@@ -1,5 +1,5 @@
 module SessionsHelper
-
+  # REV: This all looks great!
   def log_in(name, password)
     user = User.find_by_name(name)
     if password == user.password

@@ -21,6 +21,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def destroy
+  def destroy # REV: Content here?
   end
 end
