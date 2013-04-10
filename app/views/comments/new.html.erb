@@ -1,0 +1,9 @@
+<h1>New Comment for <%= @link.url_name %></h1>
+
+
+<%= form_for(@comment, :url => "/links/#{@link.id}/comments") do |f| %>
+  <p><%= f.label :body %></p>
+  <p><%= f.text_area :body %></p>
+
+  <%= f.submit "Add comment" %>
+<% end %>

@@ -1,0 +1,22 @@
+<h1> Welcome to the main page!</h1>
+
+<% if logged_in?%>
+  <%= link_to "Sign Out", session_url(session), :method => :delete %>
+<% else %>
+  <%= link_to "Sign In", new_session_url %>
+<% end %>
+
+<ul>
+<% Link.all.each do |link| %>
+  <li><%= link_to "#{link.name}",
+                  "http://#{link.url_name}" %>
+                  <small>(<%= link.url_name %>)</small>
+      <%= link_to "Comments", link_url(link) %></li>
+      <small>Posted by <%= link.creator.name %></small>
+      <%= link_to "Upvote", link_upvote_url(link), :method => :post %>
+      <%= Upvote.where(:link_id => link.id).count %>
+<% end %>
+</ul>
+
+
+<%= link_to "Create new post", new_link_url %>
